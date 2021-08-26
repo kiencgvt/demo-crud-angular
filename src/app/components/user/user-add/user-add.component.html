@@ -1,0 +1,33 @@
+<div class="container">
+  <form *ngIf="formAddUser" [formGroup]="formAddUser" (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input formControlName="name" type="text" class="form-control" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email address</label>
+      <input formControlName="email" type="email" class="form-control" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input formControlName="password" type="password" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Confirm Password</label>
+      <input formControlName="password_confirmation" type="password" class="form-control">
+    </div>
+    <div class="mb-3">
+      <h6 class="form-label">Role</h6>
+      <br>
+      <!--<select formControlName="role">
+        <option *ngFor="let role of roles" value="{{role.id}}">{{ role.name }}</option>
+      </select> -->
+      <span *ngFor="let role of roles">
+        {{role.name}}
+        <input type="radio" formControlName="role" value="{{role.id}}">
+      </span>
+    </div>
+    <br>
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>
